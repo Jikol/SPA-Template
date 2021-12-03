@@ -1,0 +1,165 @@
+@mixin font($family, $color) {
+   @if ($family == 'jetbrains' or $family == 'jet-brains') {
+      font-family: 'JetBrains', sans-serif;
+   } @else if ($family == 'jetbrainsbold' or $family == 'jetbrains-bold' or $family == 'jet-brains-bold') {
+      font-family: 'JetBrainsBold', sans-serif;
+   } @else {
+      font-family: $family, sans-serif;
+   }
+   color: $color;
+}
+
+@mixin size($width: unset, $height: unset) {
+   @if ($width == unset and $height == unset) {
+      width: 100%;
+      height: 100%;
+   } @else if ($width != unset and $height == unset) {
+      width: $width;
+      height: $width;
+   } @else {
+      width: $width;
+      height: $height;
+   }
+}
+
+@mixin flex-center() {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+@mixin flex-row($main-axis: flex-start, $cross-axis: stretch, $gap: 0, $wrap: nowrap, $align-content: unset) {
+   display: flex;
+   flex-flow: row $wrap;
+   justify-content: $main-axis;     // flex-end | center | space-between | space-around | space-evenly
+   align-items: $cross-axis;        // flex-start | flex-end | center | baseline
+   gap: $gap;
+   align-content: $align-content;   // flex-start | flex-end | center | space-between | space-around | space-evenly
+}
+
+@mixin flex-column($main-axis: flex-start, $cross-axis: stretch, $gap: 0, $wrap: nowrap, $align-content: unset) {
+   display: flex;
+   flex-flow: column $wrap;
+   justify-content: $main-axis;     // flex-end | center | space-between | space-around | space-evenly
+   align-items: $cross-axis;        // flex-start | flex-end | center | baseline
+   gap: $gap;
+   align-content: $align-content;   // flex-start | flex-end | center | space-between | space-around | space-evenly
+}
+
+@mixin grid($rows: unset, $column: unset, $gap: 0) {
+   display: grid;
+   grid-template-rows: $rows;
+   grid-template-columns: $column;
+   gap: $gap;
+}
+
+@mixin grid-fr($rows-number: 1, $column-number: 1, $gap: 0) {
+   display: grid;
+   grid-template-rows: repeat($rows-number, 1fr);
+   grid-template-columns: repeat($column-number, 1fr);
+   gap: $gap;
+}
+
+@mixin grid-place($align-items: stretch, $justify-items: stretch, $align-content: unset, $justify-content: unset) {
+   place-items: $align-items $justify-items;
+   place-content: $align-content $justify-content;
+}
+
+@mixin grid-auto-row($auto-rows, $auto-column, $flow: row) {
+   grid-auto-flow: $flow;
+   grid-auto-rows: $auto-rows;
+   grid-auto-columns: $auto-column;
+}
+
+@mixin fluid-columns($auto: auto-fill, $min: 0, $gap: 0) {
+   display: grid;
+   grid-template-columns: repeat($auto, minmax($min, 1fr));
+   gap: $gap;
+}
+
+@mixin position-center($type: absolute, $zindex: 0) {
+   position: $type;
+   z-index: $zindex;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+
+@mixin pseudo-children($position: absolute, $z-index: -1, $content: '') {
+   content: $content;
+   position: $position;
+   inset: 0;
+   z-index: $z-index;
+}
+
+@mixin pseudo-parent($position: relative, $overflow: hidden, $z-index: 0) {
+   position: $position;
+   overflow: $overflow;
+   z-index: $z-index;
+   isolation: isolate;
+}
+
+@mixin button($background: transparent, $text-color: white, $border-type: all, $border: none) {
+   @include flex-center();
+   background: $background;
+   color: $text-color;
+   letter-spacing: 1px;
+   text-transform: uppercase;
+   text-decoration: none;
+   border-radius: 5px;
+   cursor: pointer;
+   white-space: nowrap;
+   transition: all .2s;
+   @if ($border-type == all
+   ) {
+      border: $border;
+   } @else {
+      border-#{$border-type}: $border;
+   }
+   svg {
+      fill: $text-color;
+      filter: drop-shadow($shadow-svg);
+      pointer-events: none;
+   }
+}
+
+@mixin input($background: transparent, $text-color: white, $border-type: all, $border: none) {
+   display: inline-block;
+   background: $background;
+   color: $text-color;
+   border-radius: 4px;
+   transition: all .2s;
+   @if ($border == none) {
+      border: 1px solid white;
+   } @else {
+      @if ($border-type == all) {
+         border: $border;
+      } @else {
+         border-#{$border-type}: $border;
+      }
+   }
+}
+
+@mixin to-custom-width($width: 0) {
+   @media only screen and (max-width: $width + 'px') {
+      @content;
+   }
+}
+
+@mixin to-custom-height($height: 0) {
+   @media only screen and (max-height: $height + 'px') {
+      @content;
+   }
+}
+
+@mixin from-custom-width($width: 0) {
+   @media only screen and (min-width: $width + 'px') {
+      @content;
+   }
+}
+
+@mixin from-custom-height($height: 0) {
+   @media only screen and (min-height: $height + 'px') {
+      @content;
+   }
+}

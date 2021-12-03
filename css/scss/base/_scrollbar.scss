@@ -1,0 +1,18 @@
+$background: $black;
+$foreground: $platinum;
+$scrollbar-width: 10px;
+
+*::-webkit-scrollbar {
+  margin: 5px;
+  width: $scrollbar-width;
+}
+
+*::-webkit-scrollbar-track {
+  background: $background;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: $foreground;
+  border: 3px solid $background;
+}

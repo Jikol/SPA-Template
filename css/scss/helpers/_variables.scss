@@ -1,0 +1,37 @@
+// Coolors.co pallete https://coolors.co/b5996c-dc0404-1f8efa-028d12-f1f1f1-ebebeb-202431-161922-12141c-090a0c
+
+/* BASE UI COLORS */
+$black: #090A0C;
+$rich-black-button: #12141C;
+$rich-black: #13161E;
+$raisin-black: #202431;
+$platinum: #EBEBEB;
+$cultured: #C8C8C8;
+
+/* BASIC COLORS */
+$green: #03B919;
+$blue: #1F8EFA;
+$red: #DC0404;
+$orange: #CB5F00;
+$gold: #B5996C;
+
+/* SHADOW-BOX */
+$shadow-thin: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+$shadow-thin-reverse: 0 -1px 3px rgba(0, 0, 0, 0.12), 0 -1px 2px rgba(0, 0, 0, 0.24);
+$shadow-thin-inset: 0 1px 3px rgba(0, 0, 0, 0.12) inset, 0 1px 2px rgba(0, 0, 0, 0.24) inset;
+$shadow-middle: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 5px rgba(0, 0, 0, 0.32);
+$shadow-middle-reverse: 0 -3px 6px rgba(0, 0, 0, 0.16), 0 -3px 5px rgba(0, 0, 0, 0.32);
+$shadow-middle-inset: 0 3px 6px rgba(0, 0, 0, 0.16) inset, 0 3px 5px rgba(0, 0, 0, 0.32) inset;
+$shadow-huge: 0 5px 9px rgba(0, 0, 0, 0.20), 0 5px 8px rgba(0, 0, 0, 0.40);
+$shadow-huge-reverse: 0 -5px 9px rgba(0, 0, 0, 0.20), 0 -5px 8px rgba(0, 0, 0, 0.40);
+$shadow-huge-inset: 0 3px 6px rgba(0, 0, 0, 0.16) inset, 0 3px 5px rgba(0, 0, 0, 0.32) inset;
+$shadow-svg: 2px 2px 3px rgba(0, 0, 0, 0.5);
+$shadow-white: 0 1px 3px rgba(255, 255, 255, 0.45), 0 1px 2px rgba(255, 255, 255, 0.40);
+
+/* BUTTON SHADOW-BOX */
+$button-shadow-black-inset: 1px 1px 10px 3px rgba(0, 0, 0, 0.8) inset;
+
+/* TEXT-SHADOW */
+$text-shadow-global: 1px 2px 2px rgba(0, 0, 0, 0.25);
+$text-shadow-middle: 2px 3px 5px rgba(0, 0, 0, 0.4);
+$text-shadow-huge: 3px 4px 7px rgba(0, 0, 0, 0.6);

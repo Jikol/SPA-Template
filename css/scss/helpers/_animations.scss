@@ -1,0 +1,25 @@
+@mixin generic-keyframe($name, $from, $from-value, $to, $to-value) {
+   @keyframes #{$name} {
+      from {
+         #{$from}: $from-value;
+      }
+      to {
+         #{$to}: $to-value;
+      }
+   }
+   .#{$name} {
+      @content;
+   }
+}
+
+@include generic-keyframe(fade-out, opacity, 1, opacity, 0) {
+   animation-name: fade-out;
+   animation-duration: .2s;
+   animation-fill-mode: forwards;
+};
+
+@include generic-keyframe(fade-in, opacity, 0, opacity, 1) {
+   animation-name: fade-in;
+   animation-duration: .2s;
+   animation-fill-mode: forwards;
+};
