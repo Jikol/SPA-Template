@@ -1,7 +1,7 @@
 export default class {
     constructor() {}
 
-    bindListeners() {}
+    bindListeners(rootNode) {}
 
     async render() { return ``; }
 }

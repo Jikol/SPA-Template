@@ -8,9 +8,11 @@ export default class extends AbstractView {
     async render() {
         // language=HTML
         return `
-            <div class="index">
-		<h1>PAGE LOADED</h1>
-	    </div>	
+            <div class="settings">
+                <main class="main">
+                    <h1>SETTINGS PAGE</h1>
+                </main>
+            </div>
         `;
     }
 }

@@ -7,8 +7,18 @@
    box-sizing: border-box;
 }
 
-#app {
+body {
+   @include flex-column();
    @include size(100vw, 100vh);
+}
+
+#app {
+   position: relative;
+   flex: 1 0 auto;
+   & > * {
+      @include size();
+      position: absolute;
+   }
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */

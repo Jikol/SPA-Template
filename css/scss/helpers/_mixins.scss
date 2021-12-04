@@ -110,8 +110,7 @@
    cursor: pointer;
    white-space: nowrap;
    transition: all .2s;
-   @if ($border-type == all
-   ) {
+   @if ($border-type == all) {
       border: $border;
    } @else {
       border-#{$border-type}: $border;

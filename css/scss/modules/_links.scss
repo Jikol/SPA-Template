@@ -1,0 +1,35 @@
+.link--button {
+   @include button($raisin-black, unset, all, 2px solid black);
+   @include font('jetbrains', $platinum);
+   @include pseudo-parent();
+   border-radius: 4px;
+   font-size: 1.3rem;
+   overflow: unset;
+   padding: 0.5em;
+   &:before {
+      @include pseudo-children();
+      box-shadow: $shadow-huge;
+      transition: .2s all;
+      opacity: 1;
+   }
+   &:after {
+      @include pseudo-children();
+      box-shadow: $shadow-huge-inset;
+      opacity: 0;
+   }
+   &:hover {
+      color: white;
+      background: lighten($raisin-black, 5%);
+      &:before {
+         opacity: 0;
+      }
+   }
+   &:active {
+      &:after {
+         opacity: 1;
+      }
+   }
+   &[data-selected] {
+      background: lighten($raisin-black, 10%);
+   }
+}

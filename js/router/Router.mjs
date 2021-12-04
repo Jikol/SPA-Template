@@ -1,5 +1,5 @@
-import Prototypes from "../modules/Prototypes.mjs";
-import IndexView from "../views/IndexView.mjs";
+import HomeView from "../views/HomeView.mjs";
+import SettingsView from "../views/SettingsView.mjs";
 import Animation from "../modules/Animation.mjs";
 
 class Router {
@@ -7,9 +7,7 @@ class Router {
         if (Router._instance) {
             return Router._instance;
         }
-
         Router._instance = this;
-        window.addEventListener("popstate", this.#router);
 
         this.#bindListeners();
         this.#router();
@@ -22,7 +20,8 @@ class Router {
 
     async #router() {
         const routes = [
-            { path: "/", title: "Index", node: "index", view: IndexView }
+            { path: "/", title: "Home", node: "home", view: HomeView },
+            { path: "/settings", title: "Settings", node: "settings", view: SettingsView }
         ];
 
         const matches = routes.map(route => {
@@ -47,9 +46,9 @@ class Router {
         const appContainer = document.querySelector('#app');
         let originalInnerHTML = appContainer.innerHTML;
 
-        appContainer.prepend(document.createElementFromString(await view.render()));
+        appContainer.insertAdjacentHTML("afterbegin", await view.render());
         view.bindListeners(match.route.node);
-        const oldNode = appContainer.lastChild;
+        const oldNode = appContainer.lastElementChild;
 
         if (originalInnerHTML) {
             Animation.fadeOut(oldNode).then(() => {
@@ -62,7 +61,14 @@ class Router {
         document.body.addEventListener("click", e => {
             if (e.target.matches('[data-route]')) {
                 e.preventDefault();
-                this.navigateTo(e.target.getAttribute('data-route'));
+                if (e.target.getAttribute('data-disabled') === null) {
+                    const selectedNodes = document.querySelectorAll('[data-selected]');
+                    selectedNodes.forEach(selectedNode => {
+                        selectedNode.removeAttribute('data-selected');
+                    });
+                    e.target.setAttribute('data-selected', '');
+                    this.navigateTo(e.target.href);
+                }
             }
         });
     }

@@ -1,0 +1,8 @@
+.home {
+   @include grid();
+   @include grid-place(center, center);
+   @include font('jetbrainsbold', $platinum);
+   border-top: 1px solid black;
+   box-shadow: $shadow-middle-inset;
+   background: $rich-black;
+}

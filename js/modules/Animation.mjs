@@ -33,9 +33,10 @@ export default class {
     }
 
     static #controlInteractiveItems(mode) {
-        const interactiveItems = document.querySelectorAll('button');
+        const interactiveItems = document.querySelectorAll('button, a, input');
         interactiveItems.forEach(item => {
-            item.disabled = !mode;
+            mode ? item.removeAttribute("data-disabled") :
+                item.setAttribute("data-disabled", "")
         });
     }
 }

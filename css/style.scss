@@ -12,11 +12,13 @@
 @import "scss/base/typography";
 @import "scss/base/scrollbar";
 @import "scss/base/leaflet";
+@import "scss/base/static";
 
 /* -----------------------------------------------
    IMPORT INTERACTIBLE ELEMENTS
   ----------------------------------------------- */
 @import "scss/modules/buttons";
+@import "scss/modules/links";
 @import "scss/modules/inputs";
 @import "scss/modules/modifiers";
 
@@ -27,3 +29,5 @@
 /* -----------------------------------------------
    IMPORT BASE DOM STYLES
   ----------------------------------------------- */
+@import "scss/pages/home";
+@import "scss/pages/settings";
