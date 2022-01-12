@@ -1,8 +1,8 @@
 .link--button {
-   @include button($raisin-black, unset, all, 2px solid black);
-   @include font('jetbrains', $platinum);
+   @include button($raisin-black, unset, all, 1px solid black);
+   @include font('jetbrains', $cultured);
    @include pseudo-parent();
-   border-radius: 4px;
+   border-radius: 5px;
    font-size: 1.3rem;
    overflow: unset;
    padding: 0.5em;
@@ -10,6 +10,7 @@
       @include pseudo-children();
       box-shadow: $shadow-huge;
       transition: .2s all;
+      background: linear-gradient(0deg, rgb(0 0 0 / .5), rgb(0 0 0 / 0));
       opacity: 1;
    }
    &:after {
@@ -18,11 +19,7 @@
       opacity: 0;
    }
    &:hover {
-      color: white;
-      background: lighten($raisin-black, 5%);
-      &:before {
-         opacity: 0;
-      }
+      background: lighten($raisin-black, 8%);
    }
    &:active {
       &:after {
@@ -30,6 +27,7 @@
       }
    }
    &[data-selected] {
-      background: lighten($raisin-black, 10%);
+      background: lighten($raisin-black, 12%);
+      color: white;
    }
 }

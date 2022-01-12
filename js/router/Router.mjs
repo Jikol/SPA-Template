@@ -46,7 +46,7 @@ class Router {
         const appContainer = document.querySelector('#app');
         let originalInnerHTML = appContainer.innerHTML;
 
-        appContainer.insertAdjacentHTML("afterbegin", await view.render());
+        appContainer.prepend(await view.render());
         view.bindListeners(match.route.node);
         const oldNode = appContainer.lastElementChild;
 

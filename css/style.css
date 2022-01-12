@@ -467,14 +467,14 @@ template {
   cursor: pointer;
   white-space: nowrap;
   transition: all 0.2s;
-  border: 2px solid black;
+  border: 1px solid black;
   font-family: "JetBrains", sans-serif;
-  color: #EBEBEB;
+  color: #C8C8C8;
   position: relative;
   overflow: hidden;
   z-index: 0;
   isolation: isolate;
-  border-radius: 4px;
+  border-radius: 5px;
   font-size: 1.3rem;
   overflow: unset;
   padding: 0.5em;
@@ -491,6 +491,7 @@ template {
   z-index: -1;
   box-shadow: 0 5px 9px rgba(0, 0, 0, 0.2), 0 5px 8px rgba(0, 0, 0, 0.4);
   transition: 0.2s all;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
   opacity: 1;
 }
 .link--button:after {
@@ -502,17 +503,14 @@ template {
   opacity: 0;
 }
 .link--button:hover {
-  color: white;
-  background: #2a2f40;
-}
-.link--button:hover:before {
-  opacity: 0;
+  background: #30364a;
 }
 .link--button:active:after {
   opacity: 1;
 }
 .link--button[data-selected] {
-  background: #343b50;
+  background: #383f56;
+  color: white;
 }
 
 /* -----------------------------------------------

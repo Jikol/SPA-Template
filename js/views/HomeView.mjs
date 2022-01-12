@@ -1,4 +1,5 @@
 import AbstractView from "./AbstractView.mjs";
+import CreateJsxElement from "../modules/CreateJsxElement.mjs";
 
 export default class extends AbstractView {
     constructor() {
@@ -6,13 +7,12 @@ export default class extends AbstractView {
     }
 
     async render() {
-        // language=HTML
-        return `
-            <div class="home">
-                <main class="main">
-                    <h1>HOME PAGE</h1>        
+        return (
+            <div className="home">
+                <main className="main">
+                    <h1>HOME PAGE</h1>
                 </main>
-	        </div>
-        `;
+            </div>
+        )
     }
 }
